@@ -3,15 +3,7 @@ def palind(strNum):
     if strNum[0:mid] == strNum[mid+1:len(strNum)][::-1]: 
         return True 
     else: 
-        return False 
-
-import random
-
-def test():
-    n = random.randint(0,10)
-    head = random.randint(0,9)*n
-    num = head +  + head.reverse()
-
+        return False
 
 if __name__ == "__main__":
     n = 123456 #limit
@@ -24,6 +16,3 @@ if __name__ == "__main__":
             elif palind(prod):
                 palindList.append(prod)
     print (max(palindList))
-
-
-
