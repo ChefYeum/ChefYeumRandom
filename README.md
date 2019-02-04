@@ -1,2 +1,4 @@
-# projectEulerDee
-My personal attempts on Project Euler problems
+# CompetitiveProgrammingDee
+Chef Dee's attempts on computational problems.
+
+
