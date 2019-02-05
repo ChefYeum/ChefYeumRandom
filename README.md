@@ -1,5 +1,5 @@
-# ChefDeePractical
-Chef Dee's attempts on computational problems.
+# ChefYeumPractical
+Chef Yeum's attempts on computational problems.
 
 
 projectEulerHackerrank
