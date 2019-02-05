@@ -1,4 +1,4 @@
-# CompetitiveProgrammingDee
+# ChefDeePractical
 Chef Dee's attempts on computational problems.
 
 
