@@ -1,3 +1,4 @@
+package week1;
 public class Multiplier{
 	public static void main(String[] args){
 		int product = 1;

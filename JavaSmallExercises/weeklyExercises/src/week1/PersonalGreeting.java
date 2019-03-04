@@ -1,3 +1,4 @@
+package week1;
 public class PersonalGreeting{
 	public static void main(String[] argumentsman){
 		String firstName = argumentsman[0];

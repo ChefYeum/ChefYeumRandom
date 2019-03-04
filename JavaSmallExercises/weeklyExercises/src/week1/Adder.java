@@ -1,3 +1,4 @@
+package week1;
 public class Adder{
 	public static void main(String[] a){
 		int sum = 0;		
