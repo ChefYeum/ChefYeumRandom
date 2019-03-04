@@ -1,4 +1,3 @@
-package tutorial5;
 
 public class Solver {
 	public static boolean solve(GameGrid inputGrid){

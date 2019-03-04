@@ -1,5 +1,3 @@
-package tutorial5;
-
 public class Field {
 	int value;
 	final boolean initial; //why immutable? (final)

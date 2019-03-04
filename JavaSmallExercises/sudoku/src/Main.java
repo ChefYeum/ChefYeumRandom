@@ -1,11 +1,9 @@
-package tutorial5;
-
 import java.util.Scanner;
 
 import java.util.InputMismatchException;
 import java.util.Objects;
 
-public class Sudoku02{
+public class Main{
 
     private static Scanner in;
 
@@ -59,28 +57,29 @@ public class Sudoku02{
     }
     
     public static void main(String[] args) {	
-//    	try {
-//    		GameGrid grid1 = new GameGrid(args[0]);
-//    	} catch (ArrayIndexOutOfBoundsException e) {
-//    		throw (new IllegalArgumentException("No path given as an argument"));
-//    	}
+    	try {
+    		GameGrid grid1 = new GameGrid(args[0]);
+    	} catch (ArrayIndexOutOfBoundsException e) {
+    		throw (new IllegalArgumentException("No path given as an argument"));
+    	}//Does this not define grid1?; why does it have to be redefined?
     	
 		GameGrid grid1 = new GameGrid(args[0]);
-    	
+
+    	System.out.println(grid1.toString());
         gameLoop:
 	        while (true) {
 	        	printMenu();
 	        	int getInput = requestInt("\n\nSelect an option [1-4]:",1,4);
 	        	
 	        	switch(getInput) {
-		        	case 1:			int c = requestInt("Select the column [0-8]: ",0,8);
-				        			int r = requestInt("Select the row [0-8]: ",0,8);
+		        	case 1:			int c = requestInt("Select the column [1-9]: ",1,9)-1;
+				        			int r = requestInt("Select the row [1-9]: ",1,9)-1;
 				        			int n = requestInt("\nInput the new value [1-9]: " , 1,9);
 					        		if (!grid1.setField(r, c, n)) System.out.println("Invalid input.");
 					        		System.out.println(grid1);
 					        		break;
-		        	case 2:			int x = requestInt("Select the column [0-8]: ",0,8);
-			        				int y = requestInt("Select the row [0-8]: ",0,8);
+		        	case 2:			int x = requestInt("Select the column [1-9]: ",1,9) - 1;
+			        				int y = requestInt("Select the row [1-9]: ",1,9) - 1;
 			        				grid1.clearField(x,y);
 			        				System.out.println(grid1);
 			        				break;

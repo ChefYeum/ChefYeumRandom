@@ -1,6 +1,3 @@
-C
-package tutorial5;
-
 import java.util.Objects;
 
 public class GameGrid{

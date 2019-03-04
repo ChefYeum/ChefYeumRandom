@@ -1,6 +1,3 @@
-package tutorial5;
-
-
 import org.junit.Test;
 import org.junit.Before;
 
