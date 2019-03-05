@@ -1,6 +1,6 @@
 
 public class Solver {
-	public static boolean solve(GameGrid inputGrid){
+	public static GameGrid solve(GameGrid inputGrid){
 		
 		return next(0,0,inputGrid);
 	}
@@ -12,13 +12,15 @@ public class Solver {
 		
 		if (init) {
 			int[] nextPos = getNextPos(column, row);
-			next(nextPos[0],nextPos[1], grid);
+			return next(nextPos[0],nextPos[1], grid);
 		} else {
-			if ()
+			if (value == 8) {
+				return false;
+			} else {
+				grid.setField(column, row, value+1);
+				return next(column, row, grid);
+			}
 		}
-		
-		return grid.getField(x, y).isInitial();
-		
 	}
 	
 	private static int[] getNextPos(int column, int row) {

@@ -57,41 +57,44 @@ public class Main{
     }
     
     public static void main(String[] args) {	
-    	try {
-    		GameGrid grid1 = new GameGrid(args[0]);
-    	} catch (ArrayIndexOutOfBoundsException e) {
-    		throw (new IllegalArgumentException("No path given as an argument"));
-    	}//Does this not define grid1?; why does it have to be redefined?
+//    	try {
+//    		GameGrid grid1 = new GameGrid(args[0]);
+//    	} catch (ArrayIndexOutOfBoundsException e) {
+//    		throw (new IllegalArgumentException("No path given as an argument"));
+//    	}//Does this not define grid1?; why does it have to be redefined?
     	
 		GameGrid grid1 = new GameGrid(args[0]);
 
-    	System.out.println(grid1.toString());
-        gameLoop:
-	        while (true) {
-	        	printMenu();
-	        	int getInput = requestInt("\n\nSelect an option [1-4]:",1,4);
-	        	
-	        	switch(getInput) {
-		        	case 1:			int c = requestInt("Select the column [1-9]: ",1,9)-1;
-				        			int r = requestInt("Select the row [1-9]: ",1,9)-1;
-				        			int n = requestInt("\nInput the new value [1-9]: " , 1,9);
-					        		if (!grid1.setField(r, c, n)) System.out.println("Invalid input.");
-					        		System.out.println(grid1);
-					        		break;
-		        	case 2:			int x = requestInt("Select the column [1-9]: ",1,9) - 1;
-			        				int y = requestInt("Select the row [1-9]: ",1,9) - 1;
-			        				grid1.clearField(x,y);
-			        				System.out.println(grid1);
-			        				break;
-		        	case 3: 		System.out.println(grid1);
-		        					break;
-		        	case 4:			Solver.solve(new GameGrid(grid1));
-		        					break;
-		        	case 5:			break gameLoop;
-		        	default:		System.out.println("Invalid Input");
-		        					break;
-	        	}
-	        }
+		System.out.println(Solver.solve(new GameGrid(grid1)).toString());
+		
+		
+//    	System.out.println(grid1.toString());
+//        gameLoop:
+//	        while (true) {
+//	        	printMenu();
+//	        	int getInput = requestInt("\n\nSelect an option [1-4]:",1,4);
+//	        	
+//	        	switch(getInput) {
+//		        	case 1:			int c = requestInt("Select the column [1-9]: ",1,9)-1;
+//				        			int r = requestInt("Select the row [1-9]: ",1,9)-1;
+//				        			int n = requestInt("\nInput the new value [1-9]: " , 1,9);
+//					        		if (!grid1.setField(r, c, n)) System.out.println("Invalid input.");
+//					        		System.out.println(grid1);
+//					        		break;
+//		        	case 2:			int x = requestInt("Select the column [1-9]: ",1,9) - 1;
+//			        				int y = requestInt("Select the row [1-9]: ",1,9) - 1;
+//			        				grid1.clearField(x,y);
+//			        				System.out.println(grid1);
+//			        				break;
+//		        	case 3: 		System.out.println(grid1);
+//		        					break;
+//		        	case 4:			System.out.println(Solver.solve(new GameGrid(grid1)));
+//		        					break;
+//		        	case 5:			break gameLoop;
+//		        	default:		System.out.println("Invalid Input");
+//		        					break;
+//	        	}
+//	        }
 	        
     }
 }
