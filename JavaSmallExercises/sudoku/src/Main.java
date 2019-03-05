@@ -65,7 +65,12 @@ public class Main{
     	
 		GameGrid grid1 = new GameGrid(args[0]);
 
-		System.out.println(Solver.solve(new GameGrid(grid1)).toString());
+		GameGrid gridCopy = new GameGrid(grid1);
+		
+//		System.out.println(Solver.solve(gridCopy));
+//		
+//		System.out.println(gridCopy);
+		
 		
 		
 //    	System.out.println(grid1.toString());

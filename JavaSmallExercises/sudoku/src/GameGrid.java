@@ -10,6 +10,7 @@ public class GameGrid{
 	
 	//public GameGrid(int[][] grid)
 	
+	
 	public GameGrid(String path){
 		this.grid = initialiseGrid(IOUtils.loadFromFile(Objects.requireNonNull(path)));
 	}
@@ -23,6 +24,8 @@ public class GameGrid{
 		for (int j = 0; j < 9; j++) {
 			for (int i = 0; i < 9; i++) {
 				Field currentField = grid.getField(i, j);
+				
+				
 				this.grid[j][i] = new Field(currentField.getValue(), currentField.isInitial());
 			}
 		}
@@ -94,7 +97,7 @@ public class GameGrid{
   
     }
     
-    private boolean isValid(int x, int y, int value)
+    public boolean isValid(int x, int y, int value)
     {
     	try {
         	return (checkRow(y,value) && checkCol(x,value) && checkSubGrid(x,y,value));
