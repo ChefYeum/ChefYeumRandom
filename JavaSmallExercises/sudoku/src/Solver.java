@@ -2,11 +2,39 @@
 public class Solver {
 	public static boolean solve(GameGrid inputGrid){
 		
-		
-		
-		return true;
+		return next(0,0,inputGrid);
 	}
 	
+	private static boolean next(int column, int row, GameGrid grid) {
+		int value = grid.getField(column, row).getValue();
+		boolean init = grid.getField(column, row).isInitial();
+		//if 9,9...
+		
+		if (init) {
+			int[] nextPos = getNextPos(column, row);
+			next(nextPos[0],nextPos[1], grid);
+		} else {
+			if ()
+		}
+		
+		return grid.getField(x, y).isInitial();
+		
+	}
+	
+	private static int[] getNextPos(int column, int row) {
+		int[] output = new int[2]; 
+		
+		if (column == 8) {
+			output[0] = 0;
+			output[1] = row+1;
+			return output;
+		}
+		else {
+			output[0] = column + 1;
+			output[1] = row;
+			return output;
+		}
+	}
 	//return true if a solution was found and false otherwise.
 	//Based on the result, print the solution to the console or a corresponding message if none was found
 }

@@ -11,7 +11,7 @@ public class Main{
      * Print a game menu message to the console.
      */
     public static void printMenu() {
-        System.out.print("1. Set field\n2. Clear field\n3. Print game\n4. Exit");
+        System.out.print("1. Set field\n2. Clear field\n3. Print game\n4. Print solution\n5. Exit");
     }   
 
     /**
@@ -85,7 +85,9 @@ public class Main{
 			        				break;
 		        	case 3: 		System.out.println(grid1);
 		        					break;
-		        	case 4:			break gameLoop;
+		        	case 4:			Solver.solve(new GameGrid(grid1));
+		        					break;
+		        	case 5:			break gameLoop;
 		        	default:		System.out.println("Invalid Input");
 		        					break;
 	        	}

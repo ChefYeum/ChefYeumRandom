@@ -18,6 +18,15 @@ public class GameGrid{
 		this.grid = initialiseGrid(grid);
 		
 	}
+	
+	public GameGrid(GameGrid grid) {
+		for (int j = 0; j < 9; j++) {
+			for (int i = 0; i < 9; i++) {
+				Field currentField = grid.getField(i, j);
+				this.grid[j][i] = new Field(currentField.getValue(), currentField.isInitial());
+			}
+		}
+	}
 
 	private Field[][] initialiseGrid(int[][] grid) {
 		Field[][] outputGrid = new Field[9][9];
@@ -123,14 +132,22 @@ public class GameGrid{
     	this.grid[row][column].setValue(EMPTY_VAL);
     }
 
-	public int getField(int column, int row) {
+	public Field getField(int column, int row) {
 		
     	try {
-    		return grid[row][column].getValue();
+    		return grid[row][column];
     	} catch (IndexOutOfBoundsException e){
     		throw new IllegalArgumentException("Invalid position");
     	}
 	}
+	
+//	public int getValue(int column, int row) {
+//		try {
+//			return grid[row][column].getValue();
+//		} catch (IndexOutOfBoundsException e) {
+//			throw new IllegalArgumentException("Invalid position");
+//		}
+//	}
 	
 	public boolean setField(int column, int row, int value)
 	{
