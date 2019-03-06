@@ -8,8 +8,6 @@ public class GameGrid{
 	public static final int EMPTY_VAL = 0;
 	private Field[][] grid;
 	
-	//public GameGrid(int[][] grid)
-	
 	
 	public GameGrid(String path){
 		this.grid = initialiseGrid(IOUtils.loadFromFile(Objects.requireNonNull(path)));
@@ -21,11 +19,10 @@ public class GameGrid{
 	}
 	
 	public GameGrid(GameGrid grid) {
+		this.grid = new Field[9][9];
 		for (int j = 0; j < 9; j++) {
 			for (int i = 0; i < 9; i++) {
-				Field currentField = grid.getField(i, j);
-				
-				
+				Field currentField = grid.getField(j, i);				
 				this.grid[j][i] = new Field(currentField.getValue(), currentField.isInitial());
 			}
 		}
@@ -58,7 +55,7 @@ public class GameGrid{
     }
     
     private boolean checkCol(int x, int value) {
-    	for (int i = 0; i < 9; i ++) {
+    	for (int i = 0; i < 9; i++) {
     		if (grid[i][x].getValue() == value) return false;
     	}
     	return true;
@@ -100,6 +97,7 @@ public class GameGrid{
     public boolean isValid(int x, int y, int value)
     {
     	try {
+    		System.out.println("R, C, SG: " + checkRow(y,value) + " " + checkCol(x,value) + " " + checkSubGrid(x,y,value));
         	return (checkRow(y,value) && checkCol(x,value) && checkSubGrid(x,y,value));
     	} catch (IndexOutOfBoundsException e){
     		throw new IllegalArgumentException("Invalid position");
@@ -154,7 +152,7 @@ public class GameGrid{
 	
 	public boolean setField(int column, int row, int value)
 	{
-		if (isValid(column, row, value) && grid[row][column].isInitial())
+		if (isValid(column, row, value) && !grid[row][column].isInitial())
 		{
 			grid[row][column].setValue(value);
 			return true;

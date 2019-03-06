@@ -65,25 +65,23 @@ public class Main{
     	
 		GameGrid grid1 = new GameGrid(args[0]);
 
+		
+		
 		GameGrid gridCopy = new GameGrid(grid1);
-		
-//		System.out.println(Solver.solve(gridCopy));
-//		
-//		System.out.println(gridCopy);
-		
-		
+		System.out.println(Solver.solve(gridCopy));
+		System.out.println(gridCopy);
 		
 //    	System.out.println(grid1.toString());
 //        gameLoop:
 //	        while (true) {
 //	        	printMenu();
-//	        	int getInput = requestInt("\n\nSelect an option [1-4]:",1,4);
+//	        	int getInput = requestInt("\n\nSelect an option [1-5]:",1,5);
 //	        	
 //	        	switch(getInput) {
 //		        	case 1:			int c = requestInt("Select the column [1-9]: ",1,9)-1;
 //				        			int r = requestInt("Select the row [1-9]: ",1,9)-1;
 //				        			int n = requestInt("\nInput the new value [1-9]: " , 1,9);
-//					        		if (!grid1.setField(r, c, n)) System.out.println("Invalid input.");
+//					        		if (!grid1.setField(c, r, n)) System.out.println("Invalid input.");
 //					        		System.out.println(grid1);
 //					        		break;
 //		        	case 2:			int x = requestInt("Select the column [1-9]: ",1,9) - 1;

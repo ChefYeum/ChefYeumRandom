@@ -6,13 +6,12 @@ public class Solver {
 	}
 
 	private static boolean next(int column, int row, GameGrid grid) {
-		int value = grid.getField(column, row).getValue();
-		boolean init = grid.getField(column, row).isInitial();
-		// if 9,9...
-		
 		if (row > GameGrid.GRID_DIM) return true;
 		if (row < 0) return false;
 		
+		int value = grid.getField(column, row).getValue();
+		boolean init = grid.getField(column, row).isInitial();
+		// if 9,9...
 		
 		if (init) {
 			int[] nextPos = getNextPos(column, row, grid);
@@ -23,9 +22,14 @@ public class Solver {
 			//but if there is no valid value till 8, backtrack.
 			
 			int n = value;
-			while (n <= GameGrid.MAX_VAL && !grid.setField(column, row, n)) {
+			boolean sf = grid.setField(column, row, n);
+			System.out.println(sf);
+			while (n <= GameGrid.MAX_VAL && !sf) {
 				n++;
+				sf = grid.setField(column, row, n);
+				System.out.println(sf);
 			}
+			System.out.println();
 			
 			if (n < GameGrid.MAX_VAL) { //valid value found
 				int[] nextPos = getNextPos(column, row, grid);
@@ -51,7 +55,8 @@ public class Solver {
 			output[1] = row;
 		}
 
-		if (grid.isInitial(column, row)) {
+		
+		if (output[1] >= 0 && output[1] < GameGrid.GRID_DIM && grid.isInitial(output[0], output[1])) {
 			return getLastPos(output[0], output[1], grid);
 		}
 
@@ -69,7 +74,7 @@ public class Solver {
 			output[1] = row;
 		}
 
-		if (grid.isInitial(column, row)) {
+		if (grid.isInitial(output[0], output[1])) {
 			return getNextPos(output[0], output[1], grid);
 		}
 
