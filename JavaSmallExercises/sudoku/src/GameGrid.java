@@ -22,7 +22,7 @@ public class GameGrid{
 		this.grid = new Field[9][9];
 		for (int j = 0; j < 9; j++) {
 			for (int i = 0; i < 9; i++) {
-				Field currentField = grid.getField(j, i);				
+				Field currentField = grid.getField(i, j);				
 				this.grid[j][i] = new Field(currentField.getValue(), currentField.isInitial());
 			}
 		}
@@ -97,7 +97,6 @@ public class GameGrid{
     public boolean isValid(int x, int y, int value)
     {
     	try {
-    		System.out.println("R, C, SG: " + checkRow(y,value) + " " + checkCol(x,value) + " " + checkSubGrid(x,y,value));
         	return (checkRow(y,value) && checkCol(x,value) && checkSubGrid(x,y,value));
     	} catch (IndexOutOfBoundsException e){
     		throw new IllegalArgumentException("Invalid position");

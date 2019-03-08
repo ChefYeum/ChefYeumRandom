@@ -1,16 +1,18 @@
 
 
-public static int dateFashion(int you, int date)
-{
-	/* If either of you is very stylish, that is, 8 or more, then the result is 2 (yes), except that if either of you has style of 2 or less, then the result is 0 (no). Otherwise the result is 1 (maybe). Here are some examples of evaluating the method on representative input values:
-	if (you > )
+class DateFashion
+{ 
+	public static int dateFashion(int you, int date)
+	{
+		if (you <= 2 || date <= 2) return 0;
+		else if (you >= 8 || date >= 8) return 2;
+		else return 1;
+	}
 
-
-
-}
-
-public static void main (String[] args)
-{
-	
-
+	public static void main (String[] args)
+	{
+		System.out.println(dateFashion(5,10));
+		System.out.println(dateFashion(5,2));
+		System.out.println(dateFashion(5,5));	
+	}
 }

@@ -64,10 +64,9 @@ public class Main{
 //    	}//Does this not define grid1?; why does it have to be redefined?
     	
 		GameGrid grid1 = new GameGrid(args[0]);
-
-		
-		
 		GameGrid gridCopy = new GameGrid(grid1);
+		
+		
 		System.out.println(Solver.solve(gridCopy));
 		System.out.println(gridCopy);
 		
