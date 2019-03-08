@@ -22,7 +22,7 @@ public class Solver {
 		
 		
 		
-		if (row > GameGrid.GRID_DIM) return true;
+		if (row >= GameGrid.GRID_DIM) return true;
 		if (row < 0) return false;
 		
 		int value = grid.getField(column, row).getValue();
@@ -89,10 +89,16 @@ public class Solver {
 			output[0] = column + 1;
 			output[1] = row;
 		}
-
-		if (grid.isInitial(output[0], output[1])) {
-			return getNextPos(output[0], output[1], grid);
+		
+		
+		try {
+			if (grid.isInitial(output[0], output[1])) {
+				return getNextPos(output[0], output[1], grid);
+			}
+		} catch (ArrayIndexOutOfBoundsException e) {
+			return output;
 		}
+
 
 		return output;
 	}
