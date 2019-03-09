@@ -1,3 +1,4 @@
+package week4;
 /*************************************************************************
  *  Compilation:  javac StdIn.java
  *  Execution:    java StdIn

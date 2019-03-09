@@ -1,4 +1,5 @@
-import java.lang.Math
+package week4;
+
 
 class NMax
 {

@@ -1,3 +1,5 @@
+package week4;
+
 class IsTriangular{
 	public static boolean isTri(double a, double b, double c)
 	{

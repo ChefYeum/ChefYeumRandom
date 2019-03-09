@@ -1,11 +1,12 @@
+package week4;
+
 
 class ArrayFront9{
 	public static boolean arrayFront9(int[] nums){
-		for (int n : nums){
-			if (n == 9) return true;
+		for (int i = 0; (i < nums.length && i < 4); i++) {
+			if (nums[i] == 9) return true;
 		}
 		return false;
-		
 	}
 	public static void main(String[] args){
 		int N = args.length;
