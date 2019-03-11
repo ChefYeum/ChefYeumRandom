@@ -67,8 +67,7 @@ public class Main{
 		GameGrid gridCopy = new GameGrid(grid1);
 		
 		
-		System.out.println(Solver.solve(gridCopy));
-		System.out.println(gridCopy);
+		System.out.println(SolverRecursive.solve(gridCopy));
 		
 //    	System.out.println(grid1.toString());
 //        gameLoop:

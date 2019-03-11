@@ -24,7 +24,7 @@ public class SolverBasicTest {
 
     @Test
     public void solveTest() {
-        boolean result = Solver.solve(game);
+        boolean result = SolverRecursive.solve(game);
     }
 
 }
