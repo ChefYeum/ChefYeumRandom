@@ -1,8 +1,8 @@
 public class Field {
-	int value;
+	private int value;
 	final boolean initial; //why immutable? (final)
+	
 	public Field(){
-		this.value = 0;
 		this.initial = false;
 	}
 	public Field(int n, boolean init) {
@@ -22,13 +22,7 @@ public class Field {
 	}
 	
 	public String toString() {
-		if (this.initial) {
-			return (Integer.toString(this.value) + "\'");
-		} else {
-			return (Integer.toString(this.value));
-		}
+		if (this.initial) return (this.value + "'");
+		else return (Integer.toString(this.value));
 	}
-	
-	
-	
 }

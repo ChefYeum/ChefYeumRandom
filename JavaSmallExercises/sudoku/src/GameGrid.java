@@ -6,19 +6,20 @@ public class GameGrid{
 	public static final int MAX_VAL = 9;
 	public static final int MIN_VAL = 1;
 	public static final int EMPTY_VAL = 0;
+	
 	private Field[][] grid;
 	
 	
 	public GameGrid(String path){
-		this.grid = initialiseGrid(IOUtils.loadFromFile(Objects.requireNonNull(path)));
+		this(IOUtils.loadFromFile(Objects.requireNonNull(path)));
 	}
 	
 	public GameGrid(int[][] grid) {
-		this.grid = initialiseGrid(grid);
-		
+		this.grid = initialiseGrid(Objects.requireNonNull(grid));	
 	}
 	
 	public GameGrid(GameGrid grid) {
+		//nonnull check?
 		this.grid = new Field[9][9];
 		for (int j = 0; j < 9; j++) {
 			for (int i = 0; i < 9; i++) {
@@ -29,22 +30,23 @@ public class GameGrid{
 	}
 
 	private Field[][] initialiseGrid(int[][] grid) {
-		Field[][] outputGrid = new Field[9][9];
+		Field[][] outputGrid = new Field[GRID_DIM][GRID_DIM];
 		for (int y = 0; y < 9; y++) {
 			for (int x = 0; x < 9; x++) {
 				int value = grid[y][x];
-				if (value == 0) {
-					outputGrid[y][x] = new Field();
-				} else {
-					outputGrid[y][x] = new Field(value, true);
-				}
+				if (value == 0) outputGrid[y][x] = new Field();
+				else outputGrid[y][x] = new Field(value, true);
+				
 			}
 		}
 		return outputGrid;
 	}
 	
-	public boolean isInitial(int x, int y) {
-		return this.grid[y][x].initial;
+	public boolean isInitial(int column, int row) {
+        if (column < 0 || column >= GRID_DIM || row < 0 || row >= GRID_DIM)
+            throw new IllegalArgumentException("Given dimensions invalid: " + column + "x" + row);
+        
+		return this.grid[row][column].initial;
 	}
 	
     private boolean checkRow(int y, int value) {
@@ -129,6 +131,9 @@ public class GameGrid{
     }
     
     public void clearField(int column, int row) {
+        if (column < 0 || column >= GRID_DIM || row < 0 || row >= GRID_DIM)
+            throw new IllegalArgumentException("Given dimensions invalid: " + column + "x" + row); //Copied
+    	
     	this.grid[row][column].setValue(EMPTY_VAL);
     }
 
@@ -141,16 +146,14 @@ public class GameGrid{
     	}
 	}
 	
-//	public int getValue(int column, int row) {
-//		try {
-//			return grid[row][column].getValue();
-//		} catch (IndexOutOfBoundsException e) {
-//			throw new IllegalArgumentException("Invalid position");
-//		}
-//	}
-	
 	public boolean setField(int column, int row, int value)
-	{
+	{	
+		if (column < 0 || column >= GRID_DIM || row < 0 || row >= GRID_DIM)
+            throw new IllegalArgumentException("Given dimensions invalid: " + column + "x" + row); //Copied
+        if (value < MIN_VAL || value > MAX_VAL)
+            throw new IllegalArgumentException("Given value invalid: " + value); //Copied
+        
+        
 		if (isValid(column, row, value) && !grid[row][column].isInitial())
 		{
 			grid[row][column].setValue(value);
