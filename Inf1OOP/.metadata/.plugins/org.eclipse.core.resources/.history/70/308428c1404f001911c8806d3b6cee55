@@ -1,0 +1,38 @@
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class Entropy {
+	public static int[] charCount(String s) {
+		HashMap<Character,Integer> countMap = new HashMap<>();
+		if (s == null || s.length() == 0) return null;
+		else {
+			for (char c:s.toCharArray()) {
+				System.out.println(c);
+				countMap.put(c, countMap.getOrDefault(c,0)+1);
+			}
+			int[] returnedArray = new int[countMap.size()];
+			for (int i = 0; i < countMap.size(); i++) {
+				returnedArray[i] = countMap.values().toArray(new Integer[countMap.size()])[i].intValue();
+			}
+			return returnedArray;
+		}
+		
+	}
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(charCount("ahatbbb")));
+	}
+}
+
+
+/*
+In the class Entropy, implement the public static method:
+int[] charCount(String s)
+that returns an int array containing the frequencies of each character occur-
+ring in the String s. The length of the returned array should correspond to
+the number of distinct characters in s. It should return null if s is empty or
+null. Assume the string contains only lowercase letters. Return the counts,
+sorted in alphabetical order of the corresponding characters. (The correct
+counts in incorrect order will receive partial credit).
+Expected behaviour: countFreq("abbc") should return {1,2,1}.
+countFreq("xxxa") should return {1, 3}.
+*/
