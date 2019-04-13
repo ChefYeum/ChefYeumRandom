@@ -9,5 +9,5 @@ public class App {
 	}
 	public int getMemoryReq() { return memory; }
 	public int getCpuReq() { return cpu; }
-	public String getName() { return name; }
+	public String getName() { return name;}
 }
