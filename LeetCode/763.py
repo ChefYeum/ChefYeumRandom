@@ -1,25 +1,18 @@
 class Solution(object):
     def partitionLabels(self, S): 
-		
-		#1. Get the intervals for each unique character i.e. each pair of [first occured index, last occured index]
-        intervals = []
-        for letter in set(S):
-            intervals.append([S.index(letter),S.rindex(letter)])
-		
-		#2. Sort the inverals by the start of the interval
-        intervals.sort(key=lambda t: t[0])
-	
-		#3. Merge any overlapped intervals
-        i = 0 
-        while (i < len(intervals)-1):
-            if (intervals[i][1] >= intervals[i+1][0]):
-                intervals[i][1] = max(intervals[i+1][1], intervals[i][1])
-                del(intervals[i+1])
+        intervals = [[S.index(S[0]),S.rindex(S[0])]]
+        lastInterval = intervals[-1]
+
+        for letter in list(dict.fromkeys(S))[1:]:
+            #If overlaps, merge the new interval with the last interval
+            if lastInterval[1] >=  S.index(letter): 
+                lastInterval[1] = max(lastInterval[1],S.rindex(letter))
+            #Otherwise (if they do not overlap), add it as a new interval and set that as the last interval
             else:
-                i += 1
-				
-		#4. Map a lambda function to get the length of each interval and return it
-        return map(lambda t: t[1]-t[0]+1, intervals)
+                intervals.append([S.index(letter),S.rindex(letter)])
+                lastInterval = intervals[-1]
+        
+        return list(map(lambda t: t[1]-t[0]+1, intervals))
 
 
 if __name__ == "__main__":
