@@ -1,5 +1,7 @@
 import java.util.Map;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Hashtable;
 
 class RockPaperScissors {
 
@@ -14,8 +16,16 @@ class RockPaperScissors {
     }
 
     public static List<Matchup> parseMatchups(String[] args) {
-        // IMPLEMENT ME
-        return null;
+    	List<Matchup> outputList = new ArrayList<>();
+    	for (String s: args) {
+    		if (s.length() == 2) {
+    			char[] twoChars = s.toCharArray();
+    			try {
+					outputList.add(new Matchup(twoChars[0],twoChars[1]));
+    			} catch (IllegalArgumentException e){}
+    		}
+    	}
+        return outputList;
     }
 
     /**
@@ -39,8 +49,13 @@ class RockPaperScissors {
     }
 
     public static Map<String, Integer> countOutcomes(List<Matchup> matches) {
-        // IMPLEMENT ME
-        return null;
+    	Map<String, Integer> countMap = new Hashtable<>();
+    	for (Matchup m : matches) {
+    		String outcome = RockPaperScissors.decideOutcome(m);
+    		countMap.put(outcome,
+    						countMap.getOrDefault(outcome, 0)+1);
+    	}
+    	return countMap;
     } 
 
     /**
