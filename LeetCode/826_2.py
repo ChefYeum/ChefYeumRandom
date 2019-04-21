@@ -11,7 +11,12 @@ class Solution:
 				if not filteredList == []:
 					total += profitDict[max(filteredList)]
 		return total
-
+	def rec(self, difficulty, profit, worker):
+		if worker == []:
+			return 0
+		else:
+			pass			
+		
 
 if __name__ == '__main__':
 	s = Solution()
