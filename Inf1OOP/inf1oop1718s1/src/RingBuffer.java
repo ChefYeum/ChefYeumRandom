@@ -43,12 +43,15 @@ public class RingBuffer extends Buffer {
 	
 	public void addToBuffer(int newNum) {
 		if (this.isFull()) System.out.println("Buffer is full.\n");
-		else if (this.end == super.buffer.length-1 || this.isEmpty()) {
+		else if (this.end == super.buffer.length-1) {
 			//if the end-point is at the end or if the buffer is empty, put the number at the start 
 			end = 0;
 			super.buffer[0] = newNum;
 			this.elementCount++;
-		} else {
+		} else if (this.isEmpty && this.start == this.end) {
+			super.buffer[end] = newNum;
+			this.elementCount++;
+		} else{
 			end++;
 			super.buffer[end] = newNum;
 			this.elementCount++;
@@ -57,27 +60,49 @@ public class RingBuffer extends Buffer {
 	}
 	
 	public int getFromBuffer() {
+		/* 	1. Empty
+		 *  2. start < end
+		 *  3. start == end and at the end
+		 *  4. start == end (same)
+		 *  5. start > end and at the end
+		 *  6. start > end
+		 */
+		
 		if (this.isEmpty()) {
 			System.out.println("Buffer is empty.\n");
 			return -1;
-		} else if (this.start == this.end) {
-			int temp = super.buffer[start];
+		else {
+			int returnInt = super.buffer[start];
 			super.buffer[start] = -1;
 			this.elementCount--;
-			return temp;
-		} else if (this.start == super.buffer.length-1) {
-			int temp = super.buffer[start];
-			super.buffer[start] = -1;
-			this.start = 0;
-			this.elementCount--;
-			return temp;
-		} else {
-			int temp = super.buffer[this.start];
-			super.buffer[this.start] = -1;
-			this.start++;
-			this.elementCount--;
-			return temp;
+			
+			//Start > end and the start is at the end of buffer -> set the start to 0 
+			if (start > end && start == super.buffer.length-1) {
+				start = 0;
+			} else if (start > end || start < end) {
+				start++;
+			}
+			
+			return returnInt
 		}
+//		} else if (this.start == this.end) {
+//			int temp = super.buffer[start];
+//			super.buffer[start] = -1;
+//			this.elementCount--;
+//			return temp;
+//		} else if (this.start == super.buffer.length-1) {
+//			int temp = super.buffer[start];
+//			super.buffer[start] = -1;
+//			this.start = 0;
+//			this.elementCount--;
+//			return temp;
+//		} else {
+//			int temp = super.buffer[this.start];
+//			super.buffer[this.start] = -1;
+//			this.start++;
+//			this.elementCount--;
+//			return temp;
+//		}
 	}
 	
 

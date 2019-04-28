@@ -31,7 +31,6 @@ public class Divergence {
 	}
 	
 	public static int[][] charCountArray(String[] a){
-		
 
 		HashMap<Character, Integer> coapp = new HashMap<>();
 		for (String s: a) {

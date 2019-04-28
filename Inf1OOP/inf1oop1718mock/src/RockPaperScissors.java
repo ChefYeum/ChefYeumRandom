@@ -21,7 +21,11 @@ class RockPaperScissors {
     		if (s.length() == 2) {
     			char[] twoChars = s.toCharArray();
     			try {
-					outputList.add(new Matchup(twoChars[0],twoChars[1]));
+    				char symbol1 = twoChars[0];
+    				char symbol2 = twoChars[1];
+    				if (isValidSymbol(symbol1) && isValidSymbol(symbol2)) {
+    					outputList.add(new Matchup(symbol1, symbol2));
+    				}
     			} catch (IllegalArgumentException e){}
     		}
     	}
@@ -49,13 +53,18 @@ class RockPaperScissors {
     }
 
     public static Map<String, Integer> countOutcomes(List<Matchup> matches) {
-    	Map<String, Integer> countMap = new Hashtable<>();
-    	for (Matchup m : matches) {
-    		String outcome = RockPaperScissors.decideOutcome(m);
-    		countMap.put(outcome,
-    						countMap.getOrDefault(outcome, 0)+1);
+
+		String maxOutcome = "DRAW";
+		Map<String, Integer> countMap = new Hashtable<>();
+    	if (!matches.isEmpty()) {
+			for (Matchup m : matches) {
+				String outcome = RockPaperScissors.decideOutcome(m);
+				if (!outcome.equals("DRAW")) countMap.put(outcome, countMap.getOrDefault(outcome, 0)+1);
+				if (countMap.getOrDefault(outcome,0) > countMap.getOrDefault(maxOutcome,0)) maxOutcome = outcome;
+			}
     	}
-    	return countMap;
+		System.out.printf("Most outcomes: %d", maxOutcome);
+		return countMap;
     } 
 
     /**

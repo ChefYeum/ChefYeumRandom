@@ -25,7 +25,7 @@ class BattleShips {
     	}
     }
 
-    public static Map<Character, Integer> findShips(char[][] grid) {
+    public static Hashtable<Character, Integer> findShips(char[][] grid) {
     	Hashtable<Character, Integer> outputMap = new Hashtable<>();
     	for (char[] row : grid) {
     		for (char c : row) {

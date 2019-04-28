@@ -18,6 +18,7 @@ public class SnowSquirrelBrowserTestPublic {
 	public void testInstallApp() {
 		a1 = new Plugin("Camera",1.0,"V1");
 		boolean b = r1.installPlugin(a1);
+	
 	}	
 	@Test
 	public void testUninstallApp() {
