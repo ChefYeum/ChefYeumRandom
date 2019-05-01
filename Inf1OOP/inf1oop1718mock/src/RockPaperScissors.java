@@ -53,17 +53,18 @@ class RockPaperScissors {
     }
 
     public static Map<String, Integer> countOutcomes(List<Matchup> matches) {
+  
 
-		String maxOutcome = "DRAW";
 		Map<String, Integer> countMap = new Hashtable<>();
     	if (!matches.isEmpty()) {
+    		String maxOutcome = "DRAW";
 			for (Matchup m : matches) {
 				String outcome = RockPaperScissors.decideOutcome(m);
-				if (!outcome.equals("DRAW")) countMap.put(outcome, countMap.getOrDefault(outcome, 0)+1);
+				countMap.put(outcome, countMap.getOrDefault(outcome, 0)+1);
 				if (countMap.getOrDefault(outcome,0) > countMap.getOrDefault(maxOutcome,0)) maxOutcome = outcome;
 			}
+			System.out.printf("Most outcomes: %s", maxOutcome);
     	}
-		System.out.printf("Most outcomes: %s", maxOutcome);
 		return countMap;
     } 
 

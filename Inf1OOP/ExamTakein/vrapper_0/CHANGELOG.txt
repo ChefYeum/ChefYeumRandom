@@ -1,0 +1,17 @@
+Changes from 0.72.0 to 0.74.0
+
+- Fixed issues with ALT_GR handling
+- Fixed behavior of '%' when cursor is on EOL
+- Fixed newline replacement when using :g/[pattern]/s/^/
+- Fixed mode indicator when using dark theme
+- Fixed issue with pasting a register from visual-block mode
+- Fixed issue with recursive mapping loop detection
+- Fixed potential stack overflow when setting caret location
+- Fixed ':marks' to include marks from closed files
+- Fixed issue with '//' to repeat last search (rather than just '/')
+- Fixed infinite loop with sneak plugin when the first characters of a file matched search string
+- Added support for <c-home> and <c-end> to go to first, last character of file
+- Added ':set spell' command
+- Added '"%' register to get current filename
+- Added ability to escape '\%' when using ':r!'
+- Added support for counts when manipulating camelCase objects

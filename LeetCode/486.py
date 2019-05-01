@@ -8,7 +8,8 @@ class Solution:
                 p1 += nums.pop(-1)
             elif (nums[-1] == nums[0]):
 
-        
+        nums.__doc__        
+
 
 
 if __name__ == '__main__':

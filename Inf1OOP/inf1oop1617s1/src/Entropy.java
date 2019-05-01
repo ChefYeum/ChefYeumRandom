@@ -17,11 +17,11 @@ public class Entropy {
 			for (char c:s.toCharArray()) countMap.put(c, countMap.getOrDefault(c,0)+1);
 
 
-			//Original: Convert Integer[] to int[] to return
-			int[] returnedArray1 = new int[countMap.size()];
-			for (int i = 0; i < countMap.size(); i++) {
-				returnedArray1[i] = countMap.values().toArray(new Integer[0])[i].intValue();
-			}
+//			//Original: Convert Integer[] to int[] to return
+//			int[] returnedArray1 = new int[countMap.size()];
+//			for (int i = 0; i < countMap.size(); i++) {
+//				returnedArray1[i] = countMap.values().toArray(new Integer[0])[i].intValue();
+//			}
 
 			
 			//Revised: Convert Integer[] to int[] to return
@@ -102,17 +102,6 @@ public class Entropy {
 	}
 	
 	public static void main(String[] args) {
-//		System.out.println(Arrays.toString(charCount("hatcccbd"))); //Test case 1: should print [1, 1, 3, 1, 1, 1]
-//		System.out.println(Arrays.toString(charCount("abcdefghijklmn"))); //Test case 2: should return lots of 1s
-//		System.out.println(Arrays.toString(charCount("xxxa"))); //Test case 2: should return [1,3]
-//		System.out.println(Arrays.toString(charCount("abbc"))); //Test case 3: should return [1,2,1]
-		
-		
-//		System.out.println(Arrays.toString(normalise(new int[] {2,1,1}))); //should return {0.5,0.25, 0.25}
-//		System.out.println(Arrays.toString(normalise(charCount("abbc")))); //should return {0.25, 0.5, 0.25}
-		
-//		System.out.println((entropyOf(new double [] {0.5, 0.25, 0.25}))); //should return 1.0397
-
 		for (int[] arr : charCountArray(new String[] {"abbcccxx","bbccyzdd"})) {
 			System.out.println(Arrays.toString(arr));
 		}

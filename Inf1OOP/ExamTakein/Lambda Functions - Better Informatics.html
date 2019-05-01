@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" xmlns:fb="http://ogp.me/ns/fb#">
+
+    <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Welcome to Better Informatics. The student run website for students in the School of Informatics.">
+
+    
+    
+    
+    
+    <meta property="og:url" content="https://betterinformatics.com/resources/inf1-op/lambdas.html" />
+    <meta property="og:title" content="Better Informatics" />
+    <meta property="og:description" content="Welcome to Better Informatics. The student run website for students in the School of Informatics." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://betterinformatics.com/static/img/camel-white.png" />
+    
+    <link rel="icon" href="/static/img/favicon.ico" type="image/png">
+
+    <title>Lambda Functions - Better Informatics</title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/stylesheet.css?time='2019-04-30 15:14:22 -0500'">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</head>
+
+
+    <body id="top">
+        <a href="/">
+            <div id="title-small" class="hide-on-big">
+                <h1>Better Informatics  - Lambda Functions </h1>
+            </div>
+
+
+            <div id="title" class="ir hide-on-small">
+                <h1>Better Informatics</h1>
+            </div>
+        </a>
+
+        <div id="content">
+            <section>
+	<h2>
+		Lambda Functions
+		<a class="edit-pencil" href="https://github.com/compsoc-edinburgh/betterinformatics/blob/master/resources/inf1-op/lambdas.md"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	</h2>
+
+	<p>So say you have a list of colours: <code class="highlighter-rouge">{"blue", "red", "purple"}</code></p>
+
+<p>You create an ArrayList for these colours like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ArrayList&lt;String&gt; colours = new ArrayList&lt;&gt;(Arrays.asList("blue", "red", "purple"));
+</code></pre></div></div>
+
+<p>If you do <code class="highlighter-rouge">Collections.sort(colours)</code>, the <code class="highlighter-rouge">colours</code> array will now be sorted alphabetically. Like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"blue", "purple", "red"}
+</code></pre></div></div>
+
+<p>But say you wanted to sort it by how long the colour is. In other words, the length of the string. By <code class="highlighter-rouge">colour.length()</code>.</p>
+
+<p>How do you do that? Well, you use a comparator! <code class="highlighter-rouge">Collections.sort</code> takes another argument, which defines how you compare two objects.</p>
+
+<hr />
+
+<p>Before we go into actually defining the lambda function, we’ll explain how sorting works a little bit.</p>
+
+<p>The sorting algorithm needs to compare two items in a list to determine which item should come before/after another item.
+It does this comparison many times to sort the entire list.</p>
+
+<p>So, it needs to know to compare two items, and we can define that way by using a lambda function.</p>
+
+<p>We use <code class="highlighter-rouge">1</code> or <code class="highlighter-rouge">-1</code> to denote which item is bigger/smaller than the other.</p>
+
+<hr />
+
+<p>To sort by string length, and not alphabetically, we do this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Collections.sort(colors,
+    (a, b) -&gt; (a.length() &gt; b.length()) ? 1 : -1
+);
+</code></pre></div></div>
+
+<p>This means that if <code class="highlighter-rouge">a.length() &gt; b.length()</code>, the comparator returns <code class="highlighter-rouge">1</code>, otherwise it returns <code class="highlighter-rouge">-1</code>.</p>
+
+<p>The operator there with <code class="highlighter-rouge">?</code> and <code class="highlighter-rouge">:</code> is called a ternary operator. <code class="highlighter-rouge">(a, b)</code> are the arguments to the lambda function.</p>
+
+</section>
+
+
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-top: 4em;">
+                <a href="/cdn-cgi/l/email-protection#debfbab3b7b09ebcbbaaaabbacb7b0b8b1acb3bfaab7bdadf0bdb1b3">Send feedback</a>
+            </div>
+        </div>
+
+        
+
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110956746-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-110956746-1');
+        </script>
+
+    </body>
+</html>

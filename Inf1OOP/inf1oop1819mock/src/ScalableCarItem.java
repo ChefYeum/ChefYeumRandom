@@ -9,7 +9,7 @@ public class ScalableCarItem extends CarItem{
 		this.scaledPrice = price;
 	}
 	
-	//do i need a decorator?
+
 	public double getPrice() {return this.scaledPrice;}
 
 	public void updateSales(int sold) {
@@ -25,7 +25,7 @@ public class ScalableCarItem extends CarItem{
 	
 	public String toString() {
 		
-		return String.format("%ssales: %s\nscaled price: %s GBP",
+		return String.format("%s\nsales: %s\nscaled price: %s GBP\n",
 								super.toString(), this.sales, this.scaledPrice ).toString();	
 	}
 	

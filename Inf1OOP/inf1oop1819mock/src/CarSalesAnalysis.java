@@ -6,10 +6,8 @@ import java.util.Hashtable;
 public class CarSalesAnalysis {
 
     protected static Map<String, Integer> countByBrand(List<CarItem> soldCars) {
-
-        // TODO IMPLEMENT ME
     	Hashtable<String,Integer> countBrand = new Hashtable<>();
-    	if (Objects.isNull(soldCars) || soldCars.size() < 0) {
+    	if (Objects.isNull(soldCars) || soldCars.size() <= 0) {
     		return countBrand;
     	} else {
 			for (CarItem car: soldCars) {

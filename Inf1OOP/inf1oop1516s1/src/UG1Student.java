@@ -1,5 +1,3 @@
-import java.util.Hashtable;
-
 public class UG1Student extends Student {
 	private char mainSchedule;
 	public UG1Student(String name, String uun, char mainSchedule) {
@@ -39,25 +37,9 @@ public class UG1Student extends Student {
 		
 		
 		if (super.getCourses().length != 0) {
-			//get main schedule (most frequent course schedule)
-			Hashtable<Character, Integer> countSchedule = new Hashtable<>();
-			
+			output.append(String.format("\nMain schedule %c courses:", this.mainSchedule));
 			for (Course c : super.getCourses()) {
-				char schedule = c.getSchedule();
-				countSchedule.put(schedule, countSchedule.getOrDefault(schedule, 0)+1);
-			}
-			
-			//Get Max
-			char maxKey = (char) countSchedule.keySet().toArray()[0];
-			for (Character c : countSchedule.keySet()) {
-				if (countSchedule.get(c) > countSchedule.get(maxKey)) {
-					maxKey = c;
-				}
-			}
-			
-			output.append(String.format("\nMain schedule %c courses:", maxKey));
-			for (Course c : super.getCourses()) {
-				if (c.getSchedule() == maxKey) {
+				if (c.getSchedule() == this.mainSchedule) {
 					output.append("\n" + c.getName());
 				}
 			}
