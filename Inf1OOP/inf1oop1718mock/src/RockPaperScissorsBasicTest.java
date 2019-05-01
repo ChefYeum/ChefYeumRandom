@@ -24,6 +24,6 @@ public class RockPaperScissorsBasicTest {
     @Test
     public void countOutcomesTest() {
 	List<Matchup> input = new ArrayList<Matchup>();
-        Map<String, Integer> result = RockPaperScissors.countOutcomes(input);
+	Map<String, Integer> result = RockPaperScissors.countOutcomes(input);
     }
 }

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.junit.Test;
+
 public class StudentTestPublic {
 
 	
@@ -72,6 +74,32 @@ public class StudentTestPublic {
 	public void testSummary() {
 		String result = s1.summary();
 		
+	}
+	
+	
+	public static void main(String[] args) {
+		completed = new ArrayList<>();
+		active = new ArrayList<>();
+		
+		c1 = new Course("Introduction to Logic", new ArrayList<>());
+		c2 = new Course("Python", new ArrayList<>());
+		
+		ArrayList<String> prerequisite1 = new ArrayList<>();
+		prerequisite1.add(c1.getName());
+		c3 = new Course("Advanced Logic", prerequisite1);
+		
+		ArrayList<String> prerequisite2 = new ArrayList<>();
+		prerequisite2.add(c1.getName());
+		prerequisite2.add(c2.getName());
+		prerequisite2.add(c3.getName());
+		
+		c4 = new Course("Video games design", prerequisite2);
+		
+		completed.add(c1);
+		active.add(c2);
+		
+		s1 = new Student("John", "Doe", active, completed, 3);
+		System.out.println(s1.summary());
 		
 	}
 	

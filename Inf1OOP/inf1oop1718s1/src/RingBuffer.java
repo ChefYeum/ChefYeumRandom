@@ -34,6 +34,7 @@ public class RingBuffer extends Buffer {
 		return (this.elementCount == 0);
 	}
 	
+	@Override
 	public void clear() {
 		super.clear();
 		this.start = 0;
@@ -48,10 +49,12 @@ public class RingBuffer extends Buffer {
 			end = 0;
 			super.buffer[0] = newNum;
 			this.elementCount++;
-		} else if (this.isEmpty && this.start == this.end) {
+		} else if (this.isEmpty() && this.start == this.end) {
+			//Case where start and end points at the same position
 			super.buffer[end] = newNum;
 			this.elementCount++;
 		} else{
+			//Normal case
 			end++;
 			super.buffer[end] = newNum;
 			this.elementCount++;
@@ -60,18 +63,10 @@ public class RingBuffer extends Buffer {
 	}
 	
 	public int getFromBuffer() {
-		/* 	1. Empty
-		 *  2. start < end
-		 *  3. start == end and at the end
-		 *  4. start == end (same)
-		 *  5. start > end and at the end
-		 *  6. start > end
-		 */
-		
 		if (this.isEmpty()) {
 			System.out.println("Buffer is empty.\n");
-			return -1;
-		else {
+			return -1;	
+		} else {
 			int returnInt = super.buffer[start];
 			super.buffer[start] = -1;
 			this.elementCount--;
@@ -82,27 +77,8 @@ public class RingBuffer extends Buffer {
 			} else if (start > end || start < end) {
 				start++;
 			}
-			
-			return returnInt
+			return returnInt;
 		}
-//		} else if (this.start == this.end) {
-//			int temp = super.buffer[start];
-//			super.buffer[start] = -1;
-//			this.elementCount--;
-//			return temp;
-//		} else if (this.start == super.buffer.length-1) {
-//			int temp = super.buffer[start];
-//			super.buffer[start] = -1;
-//			this.start = 0;
-//			this.elementCount--;
-//			return temp;
-//		} else {
-//			int temp = super.buffer[this.start];
-//			super.buffer[this.start] = -1;
-//			this.start++;
-//			this.elementCount--;
-//			return temp;
-//		}
 	}
 	
 

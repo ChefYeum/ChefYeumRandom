@@ -24,14 +24,20 @@ public class ComplexNumbers {
 	public static double[] complexReciprocal(double[] z) {
 		double a = z[0];
 		double b = z[1];
-		return new double[] {(a/(Math.pow(a,2)+Math.pow(b, 2))), (b/(Math.pow(a, 2)+Math.pow(b, 2)))};
+		return new double[] {(a/(Math.pow(a, 2)+Math.pow(b, 2))),
+							(-b/(Math.pow(a, 2)+Math.pow(b, 2)))};
 	}
 	
 	public static String toString(double[] z) {
-		double a = (Math.round(z[0]*10))/10.0;
-		double b = (Math.round(z[1]*10))/10.0;
-		String sign = b < 0 ? "-" : "+"; 
-		return (a+sign+Math.abs(b)+"i");
+		double realPart = Math.round(z[0]*10)/10.0; 
+		double imaginaryPart = Math.round(z[1]*10)/10.0;
+		
+		String posSign = (imaginaryPart > 0 ) ? "+" : "";
+		if (imaginaryPart == 0.0) return Double.toString(realPart);
+		else if (realPart == 0.0) return Double.toString(imaginaryPart) + "i";
+		else {		
+			return (realPart+ posSign + Double.toString(imaginaryPart) + "i");
+		}
 	}
 	
 	private static double magnitude(double[] z) {
@@ -70,9 +76,6 @@ public class ComplexNumbers {
 		System.out.println("("+toString(complexMultiply(z1,z2))+")");
 		System.out.println("("+toString(complexReciprocal(z1))+")");
 		System.out.println("("+toString(complexConjugate(complexAdd(z1,z2)))+")");
-
-		
-		
 	}
 }
 

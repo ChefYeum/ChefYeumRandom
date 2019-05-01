@@ -1,6 +1,13 @@
 
 import java.util.HashMap;
+import java.util.Objects;
+
+import javax.swing.event.ListSelectionEvent;
+
+import java.awt.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class FruitySmartPhone extends Phone {	
 	public FruitySmartPhone(String ownerName, int freeMemory, int cpuSpeed) {
@@ -60,21 +67,23 @@ public class FruitySmartPhone extends Phone {
 	
 	public ArrayList<String> getInstalledApps(){
 		ArrayList<String> outputList = new ArrayList<>();
+		outputList.addAll(installedApps.keySet());
+		outputList.sort((x1, x2) -> installedApps.get(x1) < installedApps.get(x2) ? -1 : 1);
 		
-		while (!this.installedApps.isEmpty()) {
-			String[] keys = this.installedApps.keySet().toArray(new String[0]);
-			int max = 0; //this way, the first element of keys will always be the max initially
-			String maxKey = null;
-			for (String key: keys) {
-				if (max < this.installedApps.get(key)) {
-					maxKey = key;
-					max = this.installedApps.get(maxKey);
-				}
-			}
-			outputList.add(maxKey);
-			this.installedApps.remove(maxKey);
-		}
-		
+//		while (!this.installedApps.isEmpty()) {
+//			String[] keys = this.installedApps.keySet().toArray(new String[0]);
+//			int max = 0; //this way, the first element of keys will always be the max initially
+//			String maxKey = null;
+//			for (String key: keys) {
+//				if (max < this.installedApps.get(key)) {
+//					maxKey = key;
+//					max = this.installedApps.get(maxKey);
+//				}
+//			}
+//			outputList.add(maxKey);
+//			this.installedApps.remove(maxKey);
+//		}
+//		
 		return outputList;
 	}
 	

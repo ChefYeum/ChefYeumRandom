@@ -25,8 +25,8 @@ class BattleShips {
     	}
     }
 
-    public static Hashtable<Character, Integer> findShips(char[][] grid) {
-    	Hashtable<Character, Integer> outputMap = new Hashtable<>();
+    public static Map<Character, Integer> findShips(char[][] grid) {
+    	Map<Character, Integer> outputMap = new Hashtable<>();
     	for (char[] row : grid) {
     		for (char c : row) {
     			if (c!='#') outputMap.put(c,outputMap.getOrDefault(c, 0)+1);

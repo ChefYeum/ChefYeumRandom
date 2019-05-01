@@ -63,12 +63,12 @@ public class Student extends Person {
 		
 		//put all the active courses in the output map
 		for (Course course : this.activeCourses) {
-			outputMap.put(course, "active")
+			outputMap.put(course, "active");
 		}
 		
 		//put all the completed courses in the output map
 		for (Course course : this.completedCourses) {
-			outputMap.putAll(course, "completed");
+			outputMap.put(course, "completed");
 		}
 		
 		return outputMap;
@@ -78,11 +78,11 @@ public class Student extends Person {
 		StringBuilder output = new StringBuilder();
 		
 		for (Course course : this.activeCourses) {
-			output.append(String.format("%s (active)", course.getName()).toString());
+			output.append(String.format("%s (active)\n", course.getName()).toString());
 		}
 	
 		for (Course course : this.completedCourses) {
-			output.append(String.format("%s (completed)", course.getName().toString()));
+			output.append(String.format("%s (completed)\n", course.getName().toString()));
 		}
 		
 		return output.toString();

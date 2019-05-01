@@ -63,7 +63,7 @@ class RockPaperScissors {
 				if (countMap.getOrDefault(outcome,0) > countMap.getOrDefault(maxOutcome,0)) maxOutcome = outcome;
 			}
     	}
-		System.out.printf("Most outcomes: %d", maxOutcome);
+		System.out.printf("Most outcomes: %s", maxOutcome);
 		return countMap;
     } 
 
