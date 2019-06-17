@@ -1,3 +1,10 @@
+import json 
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
         
@@ -12,6 +19,7 @@ class Solution:
                 mid = nextNode.val 
             nextNode = head.next
         return mid
+
 def stringToIntegerList(input):
     return json.loads(input)
 
@@ -28,12 +36,9 @@ def stringToListNode(input):
     ptr = dummyRoot.next
     return ptr
 
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+
 
 if __name__ == "__main__":
     s = Solution()
-    inputParsed = stringToListNode([1,2,3,4,5])
+    inputParsed = stringToListNode("[1,2,3,4,5]")
     print(s.middleNode(inputParsed))
