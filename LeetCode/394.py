@@ -17,10 +17,12 @@ s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
 class Solution:
     def decodeString(self, s: str) -> str:
         def parseOne(text):
-            [num,s] = text.split("[")
-            return s*int(num)
+            if "[" in text:
+                [num,s] = text.split("[")
+                return s*int(num)
+            else:
+                return text
         return ("".join(list(map(parseOne,s.split("]")))))
-
 
 
 if __name__ == "__main__":
