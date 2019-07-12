@@ -1,6 +1,5 @@
-# ChefYeumPractical
-Chef Yeum's attempts on computational problems.
-
+# ChefYeumRandom 
+Random stuff
 
 projectEulerHackerrank
   - Competitive Programming version of Project Euler problems from [HackerRank](https://www.google.com)
@@ -13,3 +12,6 @@ JavaSmallExercises
   
 Archive
   - Previously solved problems
+
+And more...
+  - Do I need descriptions smh 
