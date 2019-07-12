@@ -1,9 +1,0 @@
-P and notQ
-P -> (VandT)
-(notV or notQ) -> T
-R or T
-(notP <-> (notP -> Q))
-(R or S ) or (T and Q  )
-(P -> Q) or (R -> S)
-(P -> S) or (R -> Q)
-(not(R <-> S) <-> (P -> Q))
