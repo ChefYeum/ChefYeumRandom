@@ -1,3 +1,4 @@
+# val cannot be List type
 class ListNode:
     def __init__(self, x):
         if type(x) == list:
@@ -8,3 +9,8 @@ class ListNode:
             self.next = None
     def __repr__(self):
         return f"{self.val} -> {repr(self.next)}"
+    def append(self, val):
+        mv = self
+        while mv.next:
+            mv = mv.next
+        mv.next = ListNode(val)
