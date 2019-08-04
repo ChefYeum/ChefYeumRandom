@@ -1,0 +1,11 @@
+{
+  "name": "http-server",
+  "version": "1.0.0",
+  "description": "Chef Yeum's HTTP server from scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && npm index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
