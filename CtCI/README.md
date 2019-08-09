@@ -7,3 +7,8 @@
  - Sort (nlogn) and compare consecutive elements
  - Compare each character with every other character of the string (O(n2), O(1))
 
+1.2 
+... To be added
+
+## 2. Linked List
+
