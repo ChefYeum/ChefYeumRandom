@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc && node index.js && rm *.js"
   },
-  "author": "",
+  "author": "ChefYeum",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^12.6.9",
