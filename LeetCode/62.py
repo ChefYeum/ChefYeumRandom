@@ -1,5 +1,6 @@
 class Solution:
     # how many ways can one arrange (m-1) rights and (n-1) downs?
+    # Variant: f(a,b) = f(b,a)
     #Recursive version; too slow
     """
     def uniquePaths(self, m: int, n: int) -> int:
@@ -11,7 +12,7 @@ class Solution:
             h, l = max(m,n), min(m,n)
             return self.uniquePaths(h-1,l) + self.uniquePaths(h,l-1)
     """
-    #Iterative version; matrix
+    #Iterative version 1; matrix
     """
     def uniquePaths(self, m: int, n: int) -> int:
         if m == 1 or n == 1:
@@ -28,8 +29,7 @@ class Solution:
         return matrix[n-2][m-2]
     """
 
-    #Iterative; Generalised matrix with no special case of m,n = 1
-    """
+    #Iterative version 2; Generalised; no special case of m,n = 1
     def uniquePaths(self, m: int, n: int) -> int:
         # Generate matrix
         matrix = [([k] + [None]*(m-1)) for k in range(1,n+1)]
@@ -41,7 +41,6 @@ class Solution:
                 matrix[i][j] = matrix[i-1][j] + matrix[i][j-1]
 
         return matrix[n-2][m-2]
-    """
 
 
 if __name__ == '__main__':
