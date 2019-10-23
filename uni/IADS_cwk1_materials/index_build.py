@@ -214,3 +214,8 @@ def indexEntryFor(key):
         raise Exception('Wrong key in index line.')
 
 # End of file
+
+# Main.. 
+if __name__ == '__main__':
+    generateAllIndexEntries('raw_entries')
+
