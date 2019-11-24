@@ -95,3 +95,43 @@ class TreesGraphs:
             rightSubTree = TreesGraphs.minimalTree(ns[midPos+1:])
             return BinaryTreeNode(ns[midPos],leftSubTree,rightSubTree)
     
+    @staticmethod
+    def listOfDepth(root: BinaryTreeNode) -> List[LinkedListNode]:
+        output = [LinkedListNode(root.val)]
+      
+        currLevel = [root.left, root.right]
+        
+        while currLevel:
+            nextLevel = []
+
+            # initialise linked list
+            currNode = currLevel[0] 
+            lList = LinkedListNode(currNode.val if currNode else None)
+            if currNode:
+                nextLevel.append(currNode.left)
+                nextLevel.append(currNode.right)
+
+            for i in range(1, len(currLevel)):
+                currNode = currLevel[i]
+                lList.append(currNode.val if currNode else None)
+                if currNode:
+                    nextLevel.append(currNode.left)
+                    nextLevel.append(currNode.right)
+
+            output.append(lList)
+
+            currLevel = nextLevel 
+
+
+        return output
+    """
+    Test:
+        from random import randint
+        ls = list(set([randint(-8888,8888) for x in range(8)]))
+        ls = list(sorted(ls))
+        print (f"LS: {ls}")
+        tr = TreesGraphs.minimalTree(ls)
+        print (f"TR: \n{tr}\n")
+        lls = TreesGraphs.listOfDepth(tr)
+        print (f"LLS: {lls}") 
+    """
