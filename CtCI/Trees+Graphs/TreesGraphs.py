@@ -135,3 +135,12 @@ class TreesGraphs:
         lls = TreesGraphs.listOfDepth(tr)
         print (f"LLS: {lls}") 
     """
+    
+
+    @staticmethod
+    def listOfDepthRec(root: BinaryTreeNode) -> List[LinkedListNode]:
+        # TODO: Complete recursive version 
+        pass
+
+if __name__ == '__main__':
+    pass
